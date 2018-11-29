@@ -1,32 +1,325 @@
-.App {
-  text-align: center;
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+  font-family: myheartache;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   main custom styles
+   ========================================================================== */
+
+
+/* navigation bar */
+
+nav {
+  grid-row: 3;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  position: fixed;
+  overflow: auto;
+}
+
+li a {
+  font-size: 30px;
+  display: block;
+  color: #000;
+  padding: 8px 0 8px 50px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+
+li a:hover {
+  text-decoration: none;
+  background: url("../src/img/backgrounds/menu_item3.svg") no-repeat;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.active {
+  background: url("../src/img/backgrounds/menu_item2.svg") no-repeat;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* the account pages */
+
+.account {
+  background: url("../src/img/backgrounds/account.gif") no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sginup_form {
+  /*display: grid;*/
+  /*position: absolute;*/
+  /*left: 37vw;*/
+  /*top: 20vh;*/
+  /*width: 23.6vw;*/
+  /*height: 55vh;*/
+}
+.Entry_title{
+  grid-row: 2;
+  grid-column: 1/5;
+}
+legend {
+
+  font-size: 40px;
+  text-align: center;
+}
+
+.tab {
+  padding-left: 30px;
+  border: #b3d4fc solid;
+  width: 20vw;
+  height: 5vh;
+  border-radius: 25px;
+}
+
+
+textarea {
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: #b3d4fc solid;
+  width: 22vw;
+  height: 150px;
+  border-radius: 25px;
+  resize: none;
+}
+
+label {
+  font-size: 20px;
+}
+
+#submit{
+  margin-left: 6vw;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* the entry page */
+
+.entry_page {
+  background: url("../src/img/backgrounds/andela.gif") no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+}
+
+/* the description page */
+
+.description_page {
+  background: url("../src/img/backgrounds/background4.gif") no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+
+}
+
+.description {
+  background-color: #fefefe;
+  background-size: cover;
+  height: auto;
+
+  padding: 20px 20px 20px;
+  width: 40vw;
+}
+
+b {
+  font-size: 30px;
+}
+
+.date {
+  float: right;
+}
+
+/* the events page */
+
+.events_page {
+  background: url("../src/img/backgrounds/background3.gif") no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+}
+.events{
+  grid-row:3;
+}
+
+.entry {
+
+  background: url("../src/img/backgrounds/entry_background.svg") no-repeat;
+  background-size: cover;
+  padding: 20px 20px 20px;
+  margin-top:4vh;
+  width: 30vw;
+}
+
+
+/* the settings page */
+
+.setting_page{
+  background: url("../src/img/backgrounds/andela.gif") no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+}
+.setting_box{
+  grid-row: 3;
+  width: 19vw;
+  padding: 10px;
+  margin-left: 100px;
+  background-color: #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-1{
+  align-self: center;
+  text-align: center;
+}
+.item-2{
+  text-align: center;
+  color:darkgoldenrod;
+}
+.item-3{
+  text-align: center;
+}
+.bio{
+  align-self: center;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.modal{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left:0;
+  top:0;
+  width:100%;
+  height: 100%;
+  overflow: auto;
+  background-color:rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+.model_details{
+  font-size: 35px;
+  color: white;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (max-width: 600px) {
+  /* Style adjustments for viewports that meet the condition */
+
+}
+
+@media print,
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
 }
