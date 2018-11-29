@@ -1,0 +1,9 @@
+#signup{
+    /* margin-top: 25vh; */
+}
+#background{
+    background: url("../img/backgrounds/account.gif") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+}
