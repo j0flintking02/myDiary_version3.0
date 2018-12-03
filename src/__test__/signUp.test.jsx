@@ -1,11 +1,9 @@
-import { mount, shallow } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import Enzyme from 'enzyme/build';
 import Adapter from 'enzyme-adapter-react-16/build';
-import { createUser } from '../actions/signupAction';
-import { SignUP } from '../views/signUp';
+import { SignUPTest } from '../views/signUp';
 
 Enzyme.configure({ adapter: new Adapter() });
 const store = configureStore([thunk])({
@@ -34,7 +32,7 @@ describe('signup Component', () => {
   };
   beforeEach(() => {
     wrapper = mount(
-      <SignUP createUser={jest.fn} user={{ username: '', password: '' }} />,
+      <SignUPTest createUser={jest.fn} user={{ username: '', password: '' }} />,
     );
   });
 

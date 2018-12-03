@@ -1,7 +1,7 @@
-import { ADD_USER } from './types';
+import { LOGIN_USER } from './types';
 
-export const createUser = data => (dispatch) => {
-  fetch('https://mydiary201808.herokuapp.com/api/v1/auth/signup', {
+export const loginUser = data => (dispatch) => {
+  fetch('https://mydiary201808.herokuapp.com/api/v1/auth/login', {
     method: 'POST',
     mode: 'cors',
     cache: 'no-cache',
@@ -16,9 +16,9 @@ export const createUser = data => (dispatch) => {
   })
     .then(response => response.json())
     .then((response) => {
-      // localStorage.setItem('update_Token', response.user.token);
+      localStorage.setItem('token', response.token);
       dispatch({
-        type: ADD_USER,
+        type: LOGIN_USER,
         payload: response,
 
       });

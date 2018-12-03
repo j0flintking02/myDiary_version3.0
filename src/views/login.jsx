@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import '../style/signup.css';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { createUser } from '../actions/signupActions.js';
+import { loginUser } from '../actions/loginActions';
 
-export class SignUP extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
 
@@ -19,43 +18,22 @@ export class SignUP extends Component {
 
   submitHandler(event) {
     event.preventDefault();
-    const { user } = this.props;
     const data = {
       username: this.state.username,
       password: this.state.password,
     };
-    this.props.createUser(data);
-
-    if (user.message === 'username is already taken') {
-      toast.error('username is already taken', {
-        position: 'top-right',
-        autoClose: 1000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-    }
-    if (user.message === 'new user created') {
-      toast.success(user.message, {
-        position: 'top-right',
-        autoClose: 1000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-      setTimeout(() => {
-        this.props.history.push('/login');
-      }, 3000);
-    }
+    this.props.loginUser(data);
+    this.props.history.push('/home');
   }
 
   render() {
+    const regStyle = {
+      textAlign: 'center',
+    };
     return (
       <div className="row" id="background">
         <div className="col-md-3 align-self-center offset-md-5">
-          <h1 className="text-center">sign up</h1>
+          <h1 className="text-center">Login</h1>
           <form onSubmit={this.submitHandler} id="signup">
             <div className="form-group">
               <label htmlFor="exampleInputEmail1">user name</label>
@@ -69,8 +47,8 @@ export class SignUP extends Component {
                 onChange={this.onchangeHandle}
               />
               <small id="emailHelp" className="form-text text-muted">
-We'll never share your email with
-                                    anyone else.
+                                We'll never share your details with
+                                anyone else.
 
               </small>
             </div>
@@ -86,26 +64,20 @@ We'll never share your email with
               />
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
+            <small id="emailHelp" className="center form-text text-muted">
+                  click
+              <Link to="/signup"> register </Link>
+                  if you dont have an account
+            </small>
           </form>
         </div>
-        <ToastContainer
-          position="top-right"
-          autoClose={1000}
-          hideProgressBar
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnVisibilityChange
-          draggable
-          pauseOnHover
-        />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  user: state.user,
+  login: state,
 });
-export { SignUP as SignUPTest };
-export default connect(mapStateToProps, { createUser })(SignUP);
+export { Login as LoginTest };
+export default connect(mapStateToProps, { loginUser })(Login);

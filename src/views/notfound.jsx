@@ -4,7 +4,9 @@ class Notfound extends Component {
   render() {
     return (
       <div>
-        <h1>Notfound</h1>
+        <div className="jumbotron">
+          <h1 className="display-4">Page Not Found</h1>
+        </div>
       </div>
     );
   }
